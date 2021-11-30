@@ -7,6 +7,7 @@ public class Chave : MonoBehaviour
     public float distanciaDaChave = 3;
     public bool temChave;
     private GameObject player;
+    public GameObject obj;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class Chave : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && temChave == false)
             {
                 temChave = true;
-                Destroy(gameObject);
+                transform.position = obj.transform.position;
             }
         }
 
