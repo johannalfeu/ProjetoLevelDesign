@@ -22,7 +22,7 @@ public class Inimigo : MonoBehaviour
     {
         Vector3 position = player.transform.position;
         navMesh.destination = position;
-        if (Vector3.Distance(transform.position, player.transform.position) < 0.5) 
+        if (Vector3.Distance(transform.position, player.transform.position) < 1) 
         {
             Atacar();
         }

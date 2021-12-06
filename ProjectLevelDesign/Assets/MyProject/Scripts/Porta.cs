@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Porta : MonoBehaviour
 {
     public GameObject key;
@@ -11,8 +12,12 @@ public class Porta : MonoBehaviour
 
     private bool colisao;
     private bool PortaAberta = false;
+
+    AudioSource audioData;
+    public AudioClip clip;
     void Start()
     {
+        audioData = GetComponent<AudioSource>();
         ContemChave = false;
     }
 
@@ -22,6 +27,7 @@ public class Porta : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && colisao && ContemChave == true)
         {
             PortaAberta = true;
+            audioData.PlayOneShot(clip, 0.7f);
             anim.SetTrigger("Abrir");
         }
 
